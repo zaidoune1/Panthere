@@ -1,42 +1,32 @@
-RewriteEngine On
-
-	## no-www -> www
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE,QSA]
-	## http -> https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE,QSA]
-
-AddType 'text/html; charset=UTF-8' html
-
 <IfModule mod_expires.c>
+  ExpiresActive On
 
- ExpiresActive On
- ExpiresByType image/jpg "access plus 31536000 seconds"
- ExpiresByType image/jpeg "access plus 31536000 seconds"
- ExpiresByType image/png "access plus 31536000 seconds"
- ExpiresByType image/bmp "access plus 31536000 seconds"
- ExpiresByType image/woff "access plus 31536000 seconds"
- ExpiresByType image/ico "access plus 31536000 seconds"
- ExpiresByType text/css "access plus 31536000 seconds"
- ExpiresByType text/javascript "access plus 31536000 seconds"
- ExpiresByType text/html "access plus 604800 seconds"
+ # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
 
+  # Video
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/mpeg "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  # Others
+  ExpiresByType application/pdf "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
 </IfModule>
-
-<ifmodule mod_headers.c>
-
-<filesmatch "\\.(ico|jpe?g|png|bmp|woff|gif|swf|gz|ttf|webp)$">
-Header set Cache-Control "max-age=31536000"
-</filesmatch>
-<filesmatch "\\.(css)$">
-Header set Cache-Control "max-age=31536000"
-</filesmatch>
-<filesmatch "\\.(js)$">
-Header set Cache-Control "max-age=31536000"
-</filesmatch>
-<filesmatch "\\.(html|htm)$">
-Header set Cache-Control "max-age=604800"
-</filesmatch>
-
-</ifmodule>
