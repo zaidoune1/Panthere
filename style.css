@@ -828,19 +828,19 @@ h4 {
 }
 
 .bg-dots-bg {
-    background-image: url("img/dots-bg.WebP");
+    background-image: url("img/dots-bg.webp");
     background-size: cover;
     background-position: center;
 }
 
 .bg-banniere {
-    background-image: url("img/agence-la-panthere.WebP");
+    background-image: url("img/agence-la-panthere.webp");
     background-size: cover;
     background-position: center;
 }
 
 .bg-presentation {
-    background-image: url("img/image-de-presentation.WebP");
+    background-image: url("img/image-de-presentation.webp");
     background-size: cover;
     background-position: center;
 }
