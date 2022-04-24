@@ -2,12 +2,12 @@
 <IfModule mod_expires.c>
 	ExpiresActive On
 	ExpiresDefault "access plus 7200 seconds"
-	ExpiresByType img/WebP
-	ExpiresByType img/jpg 			"access plus 1 week"
-	ExpiresByType img/jpeg 			"access plus 1 week"
-	ExpiresByType img/png 			"access plus 1 week"
-	ExpiresByType img/gif 			"access plus 1 week"
-	ExpiresByType img/svg+xml			"access plus 1 week"
+	ExpiresByType image/webp
+	ExpiresByType image/jpg 			"access plus 1 week"
+	ExpiresByType image/jpeg 			"access plus 1 week"
+	ExpiresByType image/png 			"access plus 1 week"
+	ExpiresByType image/gif 			"access plus 1 week"
+	ExpiresByType image/svg+xml			"access plus 1 week"
 	AddType image/x-icon .ico
 	ExpiresByType image/ico 			"access plus 1 week"
 	ExpiresByType image/icon 			"access plus 1 week"
@@ -23,7 +23,7 @@
 
 <IfModule mod_headers.c>
 
-<FilesMatch "\\.(ico|jpe?g|png|gif|swf)$">
+<filesmatch "\\.(ico|jpe?g|png|bmp|woff|gif|swf|gz|ttf|webp)$">
 Header set Cache-Control "max-age=2592000, public"
 </FilesMatch>
 
